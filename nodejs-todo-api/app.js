@@ -61,7 +61,7 @@ app.put('/todos/:id', async (req, res) => {
         // 1行も更新されていない場合の分岐
         result.affectedRows === 0
             ? res.status(404).json({ error: `更新対象のデータが見つかりません。`})
-            : req.status(200).json({ id: req.params.id, title, priority, status });
+            : res.status(200).json({ id: req.params.id, title, priority, status });
     } catch (error) {
         handleServerError(res, error, `データの更新に失敗しました。`);
     }
