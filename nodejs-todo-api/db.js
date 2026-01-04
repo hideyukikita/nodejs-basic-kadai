@@ -26,7 +26,7 @@ async function closePool() {
 // SQL文の実行関数
 async function executeQuery( sql, params = [] ) {
     try {
-        const [rows] = pool.execute(sql, params);
+        const [rows] = await pool.execute(sql, params);
         return [rows];
     } catch (error) {
         console.error(error);
